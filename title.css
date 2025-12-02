@@ -16,7 +16,7 @@ body{
     justify-content: center;
     align-items: center;
 
-    background-image: url("../images/titlepage.jpg");
+    background-image: url("images/titlepage.PNG");
     background-size: cover;
     background-position: center;
 }
@@ -30,13 +30,27 @@ body{
     cursor: pointer;
 
     /* TEMPORARY — adjust these later */
-    top: 65%;         /* move down */
-    left: 55%;        /* move to center horizontally */
+    top: 10%;         /* move down */
+    left: 53%;        /* move to center horizontally */
     transform: translateX(-50%);   /* true horizontal centering */
 
-    width: 200px;  /* adjust to match your drawn button size */
+    width: 1250px;  /* adjust to match your drawn button size */
 }
 
 .play-button img {
     width: 100%;
+}
+#game-screen{
+    width: 100vw;
+    height:100vh;
+
+    background-image: url("images/gamebackground.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(47, 47, 47, 0.562);
+}
+
+.hidden{
+    display:none;
 }
