@@ -1,0 +1,42 @@
+body{
+    margin: 0;
+    padding:0;
+    background: #ad877e;
+}
+
+.title-screen{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;   
+    height: 100vh;  
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url("../images/titlepage.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.play-button{
+     position: absolute;
+
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+
+    /* TEMPORARY — adjust these later */
+    top: 65%;         /* move down */
+    left: 55%;        /* move to center horizontally */
+    transform: translateX(-50%);   /* true horizontal centering */
+
+    width: 200px;  /* adjust to match your drawn button size */
+}
+
+.play-button img {
+    width: 100%;
+}
