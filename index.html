@@ -1,0 +1,32 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Hotpot-Frenzy</title>
+        <link rel="stylesheet" href="title.css">
+    
+    </head>
+    <body>
+        <div id = "title-screen" class="title-screen">
+            <!-- <img src="../images\titlepage.jpg" alt="start-page" class="start"> -->
+            <button id="play" class="play-button">
+                <img src="images/startbutton.PNG" alt="Hotpot Frenzy" class="title page">
+
+             </button>
+
+        </div>
+
+        <div id="game-screen" class="hidden">
+            <div class="order-section">
+                <h2>Customer Order</h2>
+                    <p>Broth: <span id="order-broth">-</span></p>
+                    <p>Ingredients:</p>
+                    <ul id="order-ingredients" class="ingredient-list"></ul>
+                    <img id="order-broth-img" class="order-icon" src="" alt="">
+                    <p>Customer Patience: <span id="order-timer">15</span>s</p>
+                    <div class="patience-bar">
+                        <div id="patience-fill"></div>
+                    </div>
+    </div>
+        <script src="title.js"></script>
+    </body>
+</html>
