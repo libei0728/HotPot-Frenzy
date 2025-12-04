@@ -1,62 +1,92 @@
+/* GENERAL PAGE */
 body{
-    margin: 0;
-    padding:0;
-    background: #ad877e;
+  margin: 0;
+  padding: 0;
+  background: #ad877e;
 }
 
+/* Hide anything with .hidden */
+.hidden {
+  display: none;
+}
+
+
+
+
+/* TITLE SCREEN */
 .title-screen{
-    position: fixed;
-    top: 0;
-    left: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
 
-    width: 100vw;   
-    height: 100vh;  
+  width: 100vw;   
+  height: 100vh;  
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    background-image: url("images/titlepage.PNG");
-    background-size: cover;
-    background-position: center;
+  background-image: url("images/titlepage.PNG");
+  background-size: cover;
+  background-position: center;
 }
 
 .play-button{
-     position: absolute;
+  position: absolute;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-
-    /* TEMPORARY — adjust these later */
-    top: 10%;         /* move down */
-    left: 53%;        /* move to center horizontally */
-    transform: translateX(-50%);   /* true horizontal centering */
-
-    width: 1250px;  /* adjust to match your drawn button size */
+  top: 10%;
+  left: 53%;
+  transform: translateX(-50%);
+  width: 1250px;
 }
 
 .play-button img {
-    width: 100%;
+  width: 100%;
 }
+
+/* GAME SCREEN BACKGROUND */
 #game-screen{
-    width: 100vw;
-    height:100vh;
+  position: relative;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
 
-    background-image: url("images/gamebackground.jpg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: black;
+  background-image: url("images/gamebackground.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black;
 }
 
-.hidden{
-    display:none;
+/* ORDER BOX */
+.order-section {
+  position: absolute;
+  top: 20%;
+  left: 22%;
+  z-index: 1;
+
+  width: 230px;
+  padding: 10px 12px;
+  background: rgb(252, 182, 161);
+  border-radius: 8px;
+
+  font-size: 14px;
+}
+
+.customer-img {
+  width: 120px;
+  height: auto;
+  display: block;
+  margin-bottom: 10px;
+  border-radius: 8px;
 }
 
 .order-icon {
-  width: 80px;     /* adjust based on your art */
+  width: 80px;
   height: auto;
   display: block;
   margin-bottom: 10px;
@@ -71,19 +101,149 @@ body{
 }
 
 .ingredient-list li img {
-  width: 60px;     /* adjust for ingredient icons */
+  width: 60px;
   height: auto;
 }
 
-.pantry-item {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-  cursor: pointer;      /* instead of grab */
+/* ORDER STATUS TEXT */
+#order-status {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: 0.3s ease;
+}
+
+.status-perfect {
+  color: #28a745;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.4);
+}
+
+.status-wrong {
+  color: #d93030;
+  text-shadow: 0 0 5px rgba(255, 0, 0, 0.4);
+}
+
+/* SCORE + TIMER */
+#score-board {
+  position: absolute;
+  top: 6%;
+  left: 28%;
+  z-index: 20;
+
+  padding: 8px 16px;
+  background: rgba(255, 170, 150, 0.85);
+  color: #000;
+  border-radius: 12px;
+  font-size: 20px;
+  font-weight: bold;
+  backdrop-filter: blur(3px);
+}
+
+#game-timer {
+  position: absolute;
+  top: 6%;
+  right: 24%;
+  z-index: 30;
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* POT ITEMS (icons added when clicked) */
+.pot-items {
+  position: absolute;
+  top: 25%;
+  left: 40%;
+  transform: translate(50%, 50%);
+  display: flex;
+  gap: 6px;
 }
 
 .pot-items img {
-  width: 40px;
-  height: 40px;
+  width: 80px;
+  height: 80px;
   object-fit: contain;
 }
+
+/* FIXED CLICKABLE ASSETS (INGREDIENTS / BROTHS) */
+.asset {
+  position: absolute;
+  width: 80px;
+  z-index: 1000;
+}
+
+/* GAME OVER / END SCREEN */
+/* End screen base styles – NO display here */
+.end-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  /* just a dark overlay, no image here */
+  background-color: rgba(0, 0, 0, 0.6);
+
+  display: none;              /* hidden by default */
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+}
+
+/* when JS adds .show, it becomes visible */
+.end-screen.show {
+  display: flex;
+}
+
+#end-panel {
+  position: relative;
+  width: 70vw;
+  max-width: 900px;
+  aspect-ratio: 16 / 10; /* keeps proportions nicely */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#gameover-img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: contain;
+  z-index: 1;
+}
+
+/* FINAL SCORE POSITION */
+#final-score-text {
+  position: absolute;
+  bottom: 22%;        /* move UP or DOWN */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 32px;
+  font-weight: bold;
+  z-index: 2;
+}
+
+/* BUTTON POSITION */
+#restart-btn {
+  position: absolute;
+  bottom: 10%;      /* move this UP/DOWN */
+  left: 50%;
+  transform: translateX(-50%);
+
+  padding: 12px 25px;
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: rgb(255, 150, 80);
+  color: white;
+  z-index: 2;
+}
+

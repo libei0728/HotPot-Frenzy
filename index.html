@@ -1,65 +1,59 @@
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Hotpot-Frenzy</title>
-        <link rel="stylesheet" href="title.css">
-    
-    </head>
-    <body>
-        <div id = "title-screen" class="title-screen">
-            <!-- <img src="../images\titlepage.jpg" alt="start-page" class="start"> -->
-            <button id="play" class="play-button">
-                <img src="images/startbutton.PNG" alt="Hotpot Frenzy" class="title page">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hotpot Frenzy</title>
+    <link rel="stylesheet" href="title.css" />
+  </head>
+  <body>
 
-             </button>
-
-        </div>
-
-        <div id="game-screen" class="hidden">
-            <div class="order-section">
-                <h2>Customer Order</h2>
-                    <p>Broth: <span id="order-broth">-</span></p>
-                    <p>Ingredients:</p>
-                    <ul id="order-ingredients" class="ingredient-list"></ul>
-                    <img id="order-broth-img" class="order-icon" src="" alt="">
-                    <p>Customer Patience: <span id="order-timer">15</span>s</p>
-                    <div class="patience-bar">
-                        <div id="patience-fill"></div>
-                    </div>
+    <!-- TITLE SCREEN -->
+    <div id="title-screen" class="title-screen">
+      <button id="play" class="play-button">
+        <img src="images/startbutton.PNG" alt="Hotpot Frenzy" />
+      </button>
     </div>
-        <script src="title.js"></script>
-    </body>
+
+    <!-- GAME SCREEN -->
+    <div id="game-screen" class="hidden">
+      <!-- SCORE + TIMER -->
+      <div id="score-board">
+        Score: <span id="score">0</span>
+      </div>
+
+      <div id="game-timer">
+        Time: <span id="time-left">60</span>s
+      </div>
+
+      <!-- ORDER BOX -->
+      <div class="order-section">
+        <img id="customer-img" class="customer-img" src="" alt="Customer" />
+
+        <h2>Customer Order</h2>
+
+        <p>Broth:</p>
+        <img id="order-broth-img" class="order-icon" src="" alt="Broth" />
+
+        <p>Ingredients:</p>
+        <ul id="order-ingredients" class="ingredient-list"></ul>
+
+        <p id="order-status"></p>
+      </div>
+
+     <!-- POT ICONS (what player has clicked) -->
+    <div id="pot-items" class="pot-items"></div>
+    </div>  <!-- ✅ CLOSES #game-screen HERE -->
+
+    <!-- GAME OVER / END SCREEN (SIBLING, NOT INSIDE GAME-SCREEN) -->
+    <div id="end-screen" class="end-screen hidden">
+      <div id="end-panel">
+        <img src="images/gameover.png" id="gameover-img" alt="Game Over" />
+        <p id="final-score-text">0</p>
+        <button id="restart-btn">Play Again</button>
+      </div>
+    </div>
+
+
+    <script src="title.js"></script>
+  </body>
 </html>
-
-<div id="game-screen" class="game-screen hidden">
-  <!-- LEFT: Customer order -->
-  <div class="order-section">
-    <h2>Customer Order</h2>
-
-    <p>Broth:</p>
-    <img id="order-broth-img" class="order-icon" src="" alt="">
-
-    <p>Ingredients:</p>
-    <ul id="order-ingredients" class="ingredient-list"></ul>
-
-    <p id="order-status"></p>
-  </div>
-
-  <!-- RIGHT: Pantry + Pot -->
-  <div class="play-area">
-    <div class="pantry">
-      <h3>Pantry</h3>
-      <div id="pantry-items" class="pantry-items">
-        <!-- JS will add icons here -->
-      </div>
-    </div>
-
-    <div class="pot-area">
-      <h3>Pot</h3>
-      <div class="pot-drop-zone">
-        <img src="images/assets.PNG" alt="Pot" class="pot-img">
-        <div id="pot-items" class="pot-items"></div>
-      </div>
-    </div>
-  </div>
-</div>
