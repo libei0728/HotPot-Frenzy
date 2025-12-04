@@ -25,11 +25,13 @@ const broths = {
 };
 
 const ingredients = {
-  cabbage: "",
-  tofu: "",
-  beef: "",
-  mushroom: "",
-  fishball: ""
+  lettuce: "images/4lettuce.PNG",
+  corn: "images/3corn.PNG",
+  beef: "images/2beef.PNG",
+  mushroom: "images/5mushroom.PNG",
+  fish: "images/1fish.PNG",
+  juice: "images/11juice.PNG",
+  soda: "images/12soda.PNG"
 };
 
 // choose random broth
@@ -77,10 +79,14 @@ const itemDefs = [
   { id: "nonSpicy",   type: "broth",      name: "Mild Broth",   img: "images/broth_mild.png" },
 
 
-  { id: "tofu",         type: "ingredient", name: "Tofu",         img: "images/tofu.png" },
-  { id: "cabbage",      type: "ingredient", name: "Cabbage",      img: "images/cabbage.png" },
-  { id: "mushroom",     type: "ingredient", name: "Mushroom",     img: "images/mushroom.png" },
-  { id: "fishball",     type: "ingredient", name: "Fish Ball",    img: "images/fishball.png" }
+  { id: "corn",         type: "ingredient", name: "Corn",         img: "images/3corn.PNG" },
+  { id: "lettuce",      type: "ingredient", name: "Lettuce",      img: "images/4lettuce.PNG" },
+  { id: "mushroom",     type: "ingredient", name: "Mushroom",     img: "images/5mushroom.PNG" },
+  { id: "fish",     type: "ingredient", name: "Fish",    img: "images/1fish.PNG" },
+  { id: "beef",     type: "ingredient", name: "Beef",    img: "images/2beef.PNG" },
+  { id: "juice",         type: "ingredient", name: "Juice",         img: "images/11juice.PNG" },
+  { id: "soda",      type: "ingredient", name: "Soda",      img: "images/12soda.PNG" }
+  
 ];
 
 // DOM refs
