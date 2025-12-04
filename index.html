@@ -1,3 +1,9 @@
+  <!-- Hotpot Frenzy
+  Author: Siran Chen, Xiaowen He
+  Date: Fall 2025
+
+  This project reuses and extends my own code
+  from [Introduction to the programming of arts], [2024/2025]  -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,16 +13,16 @@
   </head>
   <body>
 
-    <!-- TITLE SCREEN -->
+
     <div id="title-screen" class="title-screen">
       <button id="play" class="play-button">
         <img src="images/startbutton.PNG" alt="Hotpot Frenzy" />
       </button>
     </div>
 
-    <!-- GAME SCREEN -->
-    <div id="game-screen" class="hidden">
-      <!-- SCORE + TIMER -->
+
+    <div id="game-screen" class="game-screen" style="display: none;">
+
       <div id="score-board">
         Score: <span id="score">0</span>
       </div>
@@ -25,7 +31,7 @@
         Time: <span id="time-left">60</span>s
       </div>
 
-      <!-- ORDER BOX -->
+
       <div class="order-section">
         <img id="customer-img" class="customer-img" src="" alt="Customer" />
 
@@ -40,20 +46,36 @@
         <p id="order-status"></p>
       </div>
 
-     <!-- POT ICONS (what player has clicked) -->
-    <div id="pot-items" class="pot-items"></div>
-    </div>  <!-- ✅ CLOSES #game-screen HERE -->
 
-    <!-- GAME OVER / END SCREEN (SIBLING, NOT INSIDE GAME-SCREEN) -->
-    <div id="end-screen" class="end-screen hidden">
+      <div id="pot-items" class="pot-items"></div>
+    </div>
+
+
+    <div id="end-screen" class="end-screen" style="display: none;">
       <div id="end-panel">
         <img src="images/gameover.png" id="gameover-img" alt="Game Over" />
         <p id="final-score-text">0</p>
         <button id="restart-btn">Play Again</button>
       </div>
     </div>
-
-
+<div id="credits" class="credits hidden">
+  <div class="credits-box">
+    <h2>Credits</h2>
+    <p>Game created by: Siran Chen and Xiaowen He</p>
+    <p>Class Template Referenced:  
+      <a href="https://github.com/sirann17/art101" target="_blank">Previous Class template</a>
+      <a href="https://github.com/arivulet/art101groupa" target="_blank">Previous Class Project Repo</a>
+    </p>
+    <p>Additional Help From:  
+      <a href="https://www.w3schools.com/" target="_blank">W3Schools</a>
+      <a href="https://youtu.be/r_PL0K2fGkY?si=8IH_Yt6kqwBMlpWI" >YouTube Tutorial 1</a>
+      <a href="https://youtu.be/sVSAklXy1uE?si=MYmMaNbGr-8VEtBN">YouTube Tutorial 2</a>
+      <a href="https://youtu.be/PNJlMyloz7I?si=B8V_rOX_NIz-Ku1w">YouTube Tutorial 3</a>
+    </p>
+    <button id="close-credits">Close</button>
+  </div>
+</div>
+  <button id="credits-btn" class="credits-btn">Credits</button>
     <script src="title.js"></script>
   </body>
 </html>

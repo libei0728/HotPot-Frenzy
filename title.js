@@ -235,4 +235,18 @@ window.addEventListener("DOMContentLoaded", () => {
     endScreen.style.display   = "none";
     titleScreen.style.display = "flex";
   });
+const creditsBtn   = document.getElementById("credits-btn");
+const creditsBox   = document.getElementById("credits");
+const closeCredits = document.getElementById("close-credits");
+
+if (creditsBtn && creditsBox && closeCredits) {
+  creditsBtn.addEventListener("click", () => {
+    creditsBox.classList.remove("hidden");
+  });
+
+  closeCredits.addEventListener("click", () => {
+    creditsBox.classList.add("hidden");
+  });
+}
+
 });
