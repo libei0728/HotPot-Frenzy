@@ -30,3 +30,36 @@
         <script src="title.js"></script>
     </body>
 </html>
+
+<div id="game-screen" class="game-screen hidden">
+  <!-- LEFT: Customer order -->
+  <div class="order-section">
+    <h2>Customer Order</h2>
+
+    <p>Broth:</p>
+    <img id="order-broth-img" class="order-icon" src="" alt="">
+
+    <p>Ingredients:</p>
+    <ul id="order-ingredients" class="ingredient-list"></ul>
+
+    <p id="order-status"></p>
+  </div>
+
+  <!-- RIGHT: Pantry + Pot -->
+  <div class="play-area">
+    <div class="pantry">
+      <h3>Pantry</h3>
+      <div id="pantry-items" class="pantry-items">
+        <!-- JS will add icons here -->
+      </div>
+    </div>
+
+    <div class="pot-area">
+      <h3>Pot</h3>
+      <div class="pot-drop-zone">
+        <img src="images/assets.PNG" alt="Pot" class="pot-img">
+        <div id="pot-items" class="pot-items"></div>
+      </div>
+    </div>
+  </div>
+</div>
