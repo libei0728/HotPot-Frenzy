@@ -1,7 +1,5 @@
 window.addEventListener("DOMContentLoaded", () => {
-  /********************************************
-   *  SCREEN + DOM REFERENCES
-   ********************************************/
+
   const titleScreen   = document.getElementById("title-screen");
   const gameScreen    = document.getElementById("game-screen");
   const playButton    = document.getElementById("play");
@@ -18,17 +16,15 @@ window.addEventListener("DOMContentLoaded", () => {
   const finalScoreEl = document.getElementById("final-score-text");
   const restartBtn   = document.getElementById("restart-btn");
 
-  /********************************************
-   *  DATA DEFINITIONS
-   ********************************************/
+
   const itemDefs = [
-    // BROTHS
+
     { id: "broth_spicy",  type: "broth",      name: "Spicy Broth",  img: "images/spicy.png" },
     { id: "broth_mild",   type: "broth",      name: "Mild Broth",   img: "images/tomato.png" },
     { id: "broth_curry",  type: "broth",      name: "Curry Broth",  img: "images/curry.png" },
     { id: "broth_plain",  type: "broth",      name: "Non-Spicy",    img: "images/nonSpicy.png" },
 
-    // INGREDIENTS
+
     { id: "corn",     type: "ingredient", name: "Corn",     img: "images/3corn.PNG" },
     { id: "lettuce",  type: "ingredient", name: "Lettuce",  img: "images/4lettuce.PNG" },
     { id: "mushroom", type: "ingredient", name: "Mushroom", img: "images/5mushroom.PNG" },
@@ -63,19 +59,15 @@ window.addEventListener("DOMContentLoaded", () => {
     { id: "broth_plain", img: "images/nonSpicy.png",     x: "81%", y: "80%" }
   ];
 
-  /********************************************
-   *  GAME STATE
-   ********************************************/
+
   let currentOrder   = { brothId: null, ingredientIds: [] };
   let clickedItemIds = [];
   let score          = 0;
-  let timeLeft       = 10;
+  let timeLeft       = 60;
   let timerId        = null;
   let assetsLoaded   = false;
 
-  /********************************************
-   *  UTILS
-   ********************************************/
+
   function shuffle(arr) {
     for (let i = arr.length - 1; i > 0; i--) {
       const j   = Math.floor(Math.random() * (i + 1));
@@ -91,11 +83,8 @@ window.addEventListener("DOMContentLoaded", () => {
     scoreEl.textContent = score;
   }
 
-  /********************************************
-   *  TIMER + GAME OVER
-   ********************************************/
   function startGameTimer() {
-    timeLeft = 10;
+    timeLeft = 60;
     timeLeftEl.textContent = timeLeft;
 
     if (timerId) clearInterval(timerId);
@@ -115,19 +104,16 @@ window.addEventListener("DOMContentLoaded", () => {
   function endGame() {
     console.log("endGame called, score =", score);
 
-    // hide game screen
-    gameScreen.classList.add("hidden");
 
-    // update final score text
+    gameScreen.style.display = "none";
+
+
     finalScoreEl.textContent = score;
 
-    // show end screen
-    endScreen.classList.remove("hidden");
+    endScreen.style.display = "flex";
   }
 
-  /********************************************
-   *  ORDER LOGIC
-   ********************************************/
+
   function startNewOrder() {
     const brothPool      = itemDefs.filter(it => it.type === "broth");
     const ingredientPool = itemDefs.filter(it => it.type === "ingredient");
@@ -164,9 +150,7 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /********************************************
-   *  CLICK → ADD TO POT
-   ********************************************/
+
   function addItemToPot(itemId) {
     if (clickedItemIds.includes(itemId)) return;
 
@@ -205,9 +189,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  /********************************************
-   *  CREATE ON-SCREEN ASSETS
-   ********************************************/
+
   function loadFixedAssets() {
     if (assetsLoaded) return;
     assetsLoaded = true;
@@ -227,34 +209,30 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /********************************************
-   *  BUTTONS
-   ********************************************/
-  // Play → start game
   playButton.addEventListener("click", event => {
     event.preventDefault();
 
-    // show game, hide title + end
-    titleScreen.classList.add("hidden");
-    gameScreen.classList.remove("hidden");
-    endScreen.classList.add("hidden");
 
-    // reset core game state
+    titleScreen.style.display = "flex";
+    endScreen.style.display   = "none";
+    titleScreen.style.display = "none";
+    gameScreen.style.display  = "block";
+
+
     score = 0;
     scoreEl.textContent = score;
 
-    timeLeft = 10;
+    timeLeft = 60;
     timeLeftEl.textContent = timeLeft;
 
-    // start game
+
     loadFixedAssets();
     startNewOrder();
     startGameTimer();
   });
 
-  // Play Again → go back to title screen
   restartBtn.addEventListener("click", () => {
-    endScreen.classList.add("hidden");
-    titleScreen.classList.remove("hidden");
+    endScreen.style.display   = "none";
+    titleScreen.style.display = "flex";
   });
 });
